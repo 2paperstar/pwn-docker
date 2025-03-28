@@ -1,5 +1,7 @@
 FROM ubuntu:24.04
 
+LABEL org.opencontainers.image.authors="lee@paperst.ar"
+
 RUN dpkg --add-architecture i386 && \
   apt-get update -qq 
 
