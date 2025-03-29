@@ -6,7 +6,7 @@ RUN dpkg --add-architecture i386 && \
   apt-get update -qq 
 
 RUN apt-get install -y -qq \
-  wget git make zsh curl gcc gdb \
+  wget git make zsh curl gcc gdb vim \
   # pyenv dependencies
   build-essential libssl-dev zlib1g-dev \
   libbz2-dev libreadline-dev libsqlite3-dev \
