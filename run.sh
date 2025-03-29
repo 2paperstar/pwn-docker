@@ -27,5 +27,12 @@ if docker inspect "pwn-$VERSION" >/dev/null 2>&1; then
 fi
 
 docker start "pwn-$VERSION" >/dev/null 2>&1 ||
-  docker run -d --name "pwn-$VERSION" --platform linux/amd64 -it -v "$(pwd):/pwn" "pwn:$VERSION" >/dev/null 2>&1
+  docker run -d \
+    --name "pwn-$VERSION" \
+    --platform linux/amd64 \
+    -it \
+    -v "$(pwd):/pwn" \
+    --cap-add=SYS_PTRACE \
+    --security-opt seccomp=unconfined \
+    "pwn:$VERSION" >/dev/null 2>&1
 docker exec -it "pwn-$VERSION" /bin/zsh
