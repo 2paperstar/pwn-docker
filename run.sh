@@ -34,5 +34,6 @@ docker start "pwn-$VERSION" >/dev/null 2>&1 ||
     -v "$(pwd):/pwn" \
     --cap-add=SYS_PTRACE \
     --security-opt seccomp=unconfined \
+    --security-opt apparmor=unconfined \
     "pwn:$VERSION" >/dev/null 2>&1
 docker exec -it "pwn-$VERSION" /bin/zsh
