@@ -116,3 +116,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

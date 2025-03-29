@@ -6,11 +6,12 @@ RUN dpkg --add-architecture i386 && \
   apt-get update -qq 
 
 RUN apt-get install -y -qq \
-  wget git make zsh curl gcc gdb vim file \
+  wget git make zsh curl gcc gdb vim file locales \
   # pyenv dependencies
   build-essential libssl-dev zlib1g-dev \
   libbz2-dev libreadline-dev libsqlite3-dev \
-  libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+  libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev && \
+  locale-gen en_US.UTF-8
 
 RUN curl -fsSL https://github.com/asdf-vm/asdf/releases/download/v0.16.7/asdf-v0.16.7-linux-amd64.tar.gz | tar -xzv -C /usr/local/bin && \
   mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions" && \
